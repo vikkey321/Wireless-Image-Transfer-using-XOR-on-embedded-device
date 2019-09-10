@@ -1,0 +1,186 @@
+function varargout = GUI(varargin)
+% GUI M-file for GUI.fig
+%      GUI, by itself, creates a new GUI or raises the existing
+%      singleton*.
+%
+%      H = GUI returns the handle to a new GUI or the handle to
+%      the existing singleton*.
+%
+%      GUI('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in GUI.M with the given input arguments.
+%
+%      GUI('Property','Value',...) creates a new GUI or raises the
+%      existing singleton*.  Starting from the left, property value pairs are
+%      applied to the GUI before readandplothistogram_OpeningFunction gets called.  An
+%      unrecognized property name or invalid value makes property application
+%      stop.  All inputs are passed to GUI_OpeningFcn via varargin.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% Edit the above text to modify the response to help GUI
+
+% Last Modified by GUIDE v2.5 04-Oct-2013 09:47:18
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @GUI_OpeningFcn, ...
+                   'gui_OutputFcn',  @GUI_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+
+
+% --- Executes just before GUI is made visible.
+function GUI_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   command line arguments to GUI (see VARARGIN)
+
+% Choose default command line output for GUI
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+% UIWAIT makes GUI wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+
+
+% --- Outputs from this function are returned to the command line.
+function varargout = GUI_OutputFcn(hObject, eventdata, handles) 
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+
+% --- Executes on button press in pushbutton1.
+function pushbutton1_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+clear all;
+clear;
+clc;
+global img;
+global x;
+[fn,pn]=uigetfile({'*.jpg'});
+ 
+img=imread([pn,fn]);
+x=img;
+
+imshow(x);
+axes(handles.axes4);
+imshow(x);
+  
+
+
+
+% --- Executes on button press in pushbutton2.
+function pushbutton2_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+%global x;
+global img;
+global x;
+
+imshow(x);
+axes(handles.axes4);
+imshow(x);
+img1=imread('C:\01.jpg');
+
+img=imresize(img,[64,128]);
+img1=imresize(img1,[64,128]);
+
+
+img=rgb2gray(img);
+img1=rgb2gray(img1);
+
+img=im2bw(img);
+img1=im2bw(img1);
+
+for i=1:1:64
+        for j=1:1:128
+            img(i,j)=~img(i,j);
+            img1(i,j)=~img1(i,j);
+        end
+end
+
+axes(handles.axes2);
+imshow(img);
+
+s=(0:7);
+s1=(0:7);
+
+s=[0 0 0 0 0 0 0 0];
+s1=[0 0 0 0 0 0 0 0];
+
+st=serial('com7');
+fopen(st);
+for i=1:8:64
+    for j=1:1:128
+        s(8)=img(i,j);
+        s(7)=img(i+1,j);
+        s(6)=img(i+2,j);
+        s(5)=img(i+3,j);
+        s(4)=img(i+4,j);
+        s(3)=img(i+5,j);
+        s(2)=img(i+6,j);
+        s(1)=img(i+7,j);
+        
+        
+        s1(8)=img1(i,j);
+        s1(7)=img1(i+1,j);
+        s1(6)=img1(i+2,j);
+        s1(5)=img1(i+3,j);
+        s1(4)=img1(i+4,j);
+        s1(3)=img1(i+5,j);
+        s1(2)=img1(i+6,j);
+        s1(1)=img1(i+7,j);
+        
+  %      s(8)=s(8)^s1(8);
+   %     s(7)=s(7)^s1(7);
+   %     s(6)=s(6)^s1(6);
+   %     s(5)=s(5)^s1(5);
+   %     s(4)=s(4)^s1(4);
+   %     s(3)=s(3)^s1(3);
+   %     s(2)=s(2)^s1(2);
+   %     s(1)=s(1)^s1(1);
+        
+        m=((s(1)*(2^7))+(s(2)*(2^6))+(s(3)*(2^5))+(s(4)*(2^4))+(s(5)*(2^3))+(s(6)*(2^2))+(s(7)*(2^1))+(s(8)*(2^0)));
+        m1=((s1(1)*(2^7))+(s1(2)*(2^6))+(s1(3)*(2^5))+(s1(4)*(2^4))+(s1(5)*(2^3))+(s1(6)*(2^2))+(s1(7)*(2^1))+(s1(8)*(2^0)));
+        
+        a=char(m);
+        %a1=char(m1);
+        
+        %b=a^a1;
+       % b=char(b);
+       fprintf('%c',a); 
+       fwrite(st,a);
+        %pause(.1);
+    end
+end
+fclose(st);
+
+     
+

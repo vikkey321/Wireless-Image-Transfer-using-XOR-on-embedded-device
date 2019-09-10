@@ -1,0 +1,472 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        03/03/2014  23:34:40  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE wireless_image_transfer_XOR.obj TO wireless_image_transfer_XOR RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  wireless_image_transfer_XOR.obj (WIRELESS_IMAGE_TRANSFER_XOR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?IMUL)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  wireless_image_transfer_XOR (WIRELESS_IMAGE_TRANSFER_XOR)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000AH     UNIT         _DATA_GROUP_
+            DATA    0012H     0006H     UNIT         ?DT?_LCDPUTS1?WIRELESS_IMAGE_TRANSFER_XOR
+            DATA    0018H     0006H     UNIT         ?DT?_LCDPUTS2?WIRELESS_IMAGE_TRANSFER_XOR
+            DATA    001EH     0004H     UNIT         ?DT?_PICTURE?WIRELESS_IMAGE_TRANSFER_XOR
+            DATA    0022H     0002H     UNIT         ?DT?WIRELESS_IMAGE_TRANSFER_XOR
+            IDATA   0024H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0DD6H     UNIT         ?CO?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    0DD9H     00B0H     UNIT         ?PR?MAIN?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    0E89H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0F15H     0064H     UNIT         ?PR?_LCDDATA?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    0F79H     0047H     UNIT         ?PR?_LCDPUTS1?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    0FC0H     0046H     UNIT         ?PR?_LCDPUTS2?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    1006H     003FH     UNIT         ?C?LIB_CODE
+            CODE    1045H     0037H     UNIT         ?PR?_PICTURE?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    107CH     0036H     UNIT         ?PR?_SETCOLUMN?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    10B2H     0025H     UNIT         ?PR?CLRLCD?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    10D7H     001DH     UNIT         ?PR?_SETPAGE?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    10F4H     0016H     UNIT         ?PR?_SETSTARTLINE?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    110AH     0014H     UNIT         ?PR?DISPLAYON?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    111EH     0014H     UNIT         ?PR?DISPLAYOFF?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    1132H     0012H     UNIT         ?PR?_DELAY?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    1144H     000BH     UNIT         ?PR?CTRLOFF?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    114FH     0008H     UNIT         ?PR?RX?WIRELESS_IMAGE_TRANSFER_XOR
+            CODE    1157H     0004H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   wireless_image_transfer_XOR (WIRELESS_IMAGE_TRANSFER_XOR)
+
+
+SEGMENT                                            DATA_GROUP 
+  +--> CALLED SEGMENT                            START    LENGTH
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/03/2014  23:34:40  PAGE 2
+
+
+----------------------------------------------------------------
+?C_C51STARTUP                                    -----    -----
+  +--> ?PR?MAIN?WIRELESS_IMAGE_TRANSFER_XOR
+  +--> ?C_INITSEG
+
+?PR?MAIN?WIRELESS_IMAGE_TRANSFER_XOR             0008H    0004H
+  +--> ?PR?DISPLAYON?WIRELESS_IMAGE_TRANSFER...
+  +--> ?PR?_SETSTARTLINE?WIRELESS_IMAGE_TRAN...
+  +--> ?PR?CLRLCD?WIRELESS_IMAGE_TRANSFER_XOR
+  +--> ?PR?_SETCOLUMN?WIRELESS_IMAGE_TRANSFE...
+  +--> ?PR?_SETPAGE?WIRELESS_IMAGE_TRANSFER_XOR
+  +--> ?PR?RX?WIRELESS_IMAGE_TRANSFER_XOR
+  +--> ?CO?WIRELESS_IMAGE_TRANSFER_XOR
+
+?PR?DISPLAYON?WIRELESS_IMAGE_TRANSFER...         -----    -----
+  +--> ?PR?CTRLOFF?WIRELESS_IMAGE_TRANSFER_XOR
+
+?PR?_SETSTARTLINE?WIRELESS_IMAGE_TRAN...         -----    -----
+  +--> ?PR?CTRLOFF?WIRELESS_IMAGE_TRANSFER_XOR
+
+?PR?CLRLCD?WIRELESS_IMAGE_TRANSFER_XOR           000CH    0001H
+  +--> ?PR?_SETCOLUMN?WIRELESS_IMAGE_TRANSFE...
+  +--> ?PR?_LCDDATA?WIRELESS_IMAGE_TRANSFER_XOR
+
+?PR?_SETCOLUMN?WIRELESS_IMAGE_TRANSFE...         -----    -----
+  +--> ?PR?CTRLOFF?WIRELESS_IMAGE_TRANSFER_XOR
+
+?PR?_LCDDATA?WIRELESS_IMAGE_TRANSFER_XOR         000DH    0005H
+  +--> ?PR?_SETCOLUMN?WIRELESS_IMAGE_TRANSFE...
+
+?PR?_SETPAGE?WIRELESS_IMAGE_TRANSFER_XOR         -----    -----
+  +--> ?PR?_SETCOLUMN?WIRELESS_IMAGE_TRANSFE...
+  +--> ?PR?CTRLOFF?WIRELESS_IMAGE_TRANSFER_XOR
+
+
+
+SYMBOL TABLE OF MODULE:  wireless_image_transfer_XOR (WIRELESS_IMAGE_TRANSFER_XOR)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        WIRELESS_IMAGE_TRANSFER_XOR
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:1045H         PUBLIC        _picture
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00B0H.5       PUBLIC        cs1
+  B:00B0H.6       PUBLIC        cs2
+  C:1132H         PUBLIC        _delay
+  B:0098H.0       PUBLIC        RI
+  C:0803H         PUBLIC        font5x7
+  C:0DD9H         PUBLIC        main
+  C:10F4H         PUBLIC        _setstartline
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  C:0F79H         PUBLIC        _lcdputs1
+  D:0089H         PUBLIC        TMOD
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/03/2014  23:34:40  PAGE 3
+
+
+  C:0FC0H         PUBLIC        _lcdputs2
+  C:111EH         PUBLIC        displayoff
+  C:09D9H         PUBLIC        key
+  D:008DH         PUBLIC        TH1
+  C:0F15H         PUBLIC        _lcddata
+  B:00B0H.2       PUBLIC        en
+  B:0088H.6       PUBLIC        TR1
+  C:110AH         PUBLIC        displayon
+  C:1081H         PUBLIC        _setcolumn
+  D:0022H         PUBLIC        c
+  B:00B0H.4       PUBLIC        rs
+  B:00B0H.3       PUBLIC        rw
+  C:114FH         PUBLIC        rx
+  C:10DEH         PUBLIC        _setpage
+  C:1144H         PUBLIC        ctrloff
+  C:10B2H         PUBLIC        clrlcd
+  D:0023H         PUBLIC        z
+  C:0003H         PUBLIC        Character8x8
+  -------         PROC          CTRLOFF
+  C:1144H         LINE#         19
+  C:1144H         LINE#         20
+  C:1144H         LINE#         21
+  C:1146H         LINE#         22
+  C:1148H         LINE#         23
+  C:114AH         LINE#         24
+  C:114CH         LINE#         25
+  C:114EH         LINE#         26
+  -------         ENDPROC       CTRLOFF
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        j
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:1132H         LINE#         29
+  C:1132H         LINE#         30
+  C:1132H         LINE#         32
+  C:1143H         LINE#         33
+  -------         ENDPROC       _DELAY
+  -------         PROC          DISPLAYON
+  C:110AH         LINE#         35
+  C:110AH         LINE#         36
+  C:110AH         LINE#         37
+  C:110DH         LINE#         38
+  C:1110H         LINE#         39
+  C:1114H         LINE#         40
+  C:1118H         LINE#         41
+  C:111AH         LINE#         42
+  C:111BH         LINE#         43
+  C:111DH         LINE#         44
+  -------         ENDPROC       DISPLAYON
+  -------         PROC          DISPLAYOFF
+  C:111EH         LINE#         46
+  C:111EH         LINE#         47
+  C:111EH         LINE#         48
+  C:1121H         LINE#         49
+  C:1124H         LINE#         50
+  C:1128H         LINE#         51
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/03/2014  23:34:40  PAGE 4
+
+
+  C:112CH         LINE#         52
+  C:112EH         LINE#         53
+  C:112FH         LINE#         54
+  C:1131H         LINE#         55
+  -------         ENDPROC       DISPLAYOFF
+  C:107CH         SYMBOL        L?0063
+  -------         PROC          L?0062
+  -------         ENDPROC       L?0062
+  C:107CH         SYMBOL        L?0063
+  -------         PROC          _SETCOLUMN
+  D:0007H         SYMBOL        y
+  C:1081H         LINE#         57
+  C:1081H         LINE#         58
+  C:1081H         LINE#         59
+  C:1087H         LINE#         60
+  C:1087H         LINE#         61
+  C:108AH         LINE#         62
+  C:108CH         LINE#         63
+  C:1093H         LINE#         64
+  C:1097H         LINE#         65
+  C:1097H         LINE#         66
+  C:1097H         LINE#         67
+  C:1097H         LINE#         68
+  C:1097H         LINE#         69
+  C:1097H         LINE#         70
+  C:1099H         LINE#         72
+  C:1099H         LINE#         73
+  C:109BH         LINE#         74
+  C:10A4H         LINE#         75
+  C:10A8H         LINE#         76
+  C:10AAH         LINE#         77
+  C:10ACH         LINE#         78
+  C:10AEH         LINE#         79
+  C:10AFH         LINE#         80
+  C:10B1H         LINE#         82
+  C:10B1H         LINE#         83
+  -------         ENDPROC       _SETCOLUMN
+  -------         PROC          L?0064
+  -------         ENDPROC       L?0064
+  -------         PROC          _SETPAGE
+  D:0007H         SYMBOL        x
+  C:10DEH         LINE#         85
+  C:10DEH         LINE#         86
+  C:10DEH         LINE#         87
+  C:10E1H         LINE#         88
+  C:10E6H         LINE#         89
+  C:10E8H         LINE#         90
+  C:10EAH         LINE#         91
+  C:10ECH         LINE#         92
+  C:10EEH         LINE#         93
+  C:10F0H         LINE#         94
+  C:10F1H         LINE#         95
+  C:10F3H         LINE#         96
+  -------         ENDPROC       _SETPAGE
+  -------         PROC          _SETSTARTLINE
+  D:0007H         SYMBOL        z
+  C:10F4H         LINE#         99
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/03/2014  23:34:40  PAGE 5
+
+
+  C:10F4H         LINE#         100
+  C:10F4H         LINE#         101
+  C:10F7H         LINE#         102
+  C:10FCH         LINE#         103
+  C:10FEH         LINE#         104
+  C:1100H         LINE#         105
+  C:1102H         LINE#         106
+  C:1104H         LINE#         107
+  C:1106H         LINE#         108
+  C:1107H         LINE#         109
+  C:1109H         LINE#         110
+  -------         ENDPROC       _SETSTARTLINE
+  -------         PROC          _LCDDATA
+  D:000DH         SYMBOL        value
+  D:0010H         SYMBOL        limit
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0F15H         LINE#         112
+  C:0F1FH         LINE#         113
+  C:0F1FH         LINE#         115
+  C:0F2BH         LINE#         116
+  C:0F2BH         LINE#         117
+  C:0F32H         LINE#         118
+  C:0F32H         LINE#         119
+  C:0F41H         LINE#         120
+  C:0F45H         LINE#         121
+  C:0F45H         LINE#         122
+  C:0F45H         LINE#         123
+  C:0F45H         LINE#         124
+  C:0F45H         LINE#         125
+  C:0F45H         LINE#         126
+  C:0F45H         LINE#         127
+  C:0F47H         LINE#         129
+  C:0F47H         LINE#         130
+  C:0F4CH         LINE#         131
+  C:0F5BH         LINE#         132
+  C:0F5FH         LINE#         133
+  C:0F61H         LINE#         134
+  C:0F63H         LINE#         135
+  C:0F65H         LINE#         136
+  C:0F66H         LINE#         137
+  C:0F68H         LINE#         138
+  C:0F6AH         LINE#         139
+  C:0F6AH         LINE#         140
+  C:0F71H         LINE#         142
+  C:0F78H         LINE#         143
+  -------         ENDPROC       _LCDDATA
+  -------         PROC          _LCDPUTS1
+  D:0007H         SYMBOL        y
+  D:0006H         SYMBOL        x
+  D:0012H         SYMBOL        str
+  -------         DO            
+  D:0015H         SYMBOL        i
+  D:0016H         SYMBOL        a
+  -------         ENDDO         
+  C:0F79H         LINE#         145
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/03/2014  23:34:40  PAGE 6
+
+
+  C:0F7FH         LINE#         146
+  C:0F7FH         LINE#         149
+  C:0F7FH         LINE#         150
+  C:0F82H         LINE#         151
+  C:0F97H         LINE#         152
+  C:0F97H         LINE#         153
+  C:0F9CH         LINE#         154
+  C:0FABH         LINE#         155
+  C:0FBBH         LINE#         156
+  C:0FBFH         LINE#         157
+  -------         ENDPROC       _LCDPUTS1
+  -------         PROC          _LCDPUTS2
+  D:0007H         SYMBOL        y
+  D:0006H         SYMBOL        x
+  D:0018H         SYMBOL        str
+  -------         DO            
+  D:001BH         SYMBOL        i
+  D:001CH         SYMBOL        a
+  -------         ENDDO         
+  C:0FC0H         LINE#         159
+  C:0FC6H         LINE#         160
+  C:0FC6H         LINE#         163
+  C:0FC6H         LINE#         164
+  C:0FC9H         LINE#         165
+  C:0FDDH         LINE#         166
+  C:0FDDH         LINE#         167
+  C:0FE6H         LINE#         168
+  C:0FF4H         LINE#         169
+  C:1001H         LINE#         170
+  C:1005H         LINE#         171
+  -------         ENDPROC       _LCDPUTS2
+  -------         PROC          _PICTURE
+  D:001EH         SYMBOL        val
+  -------         DO            
+  D:0021H         SYMBOL        j
+  -------         ENDDO         
+  C:1045H         LINE#         174
+  C:104BH         LINE#         175
+  C:104BH         LINE#         177
+  C:1050H         LINE#         178
+  C:1053H         LINE#         179
+  C:1056H         LINE#         180
+  C:1056H         LINE#         181
+  C:1058H         LINE#         182
+  C:105BH         LINE#         183
+  C:1072H         LINE#         184
+  C:107BH         LINE#         185
+  -------         ENDPROC       _PICTURE
+  -------         PROC          CLRLCD
+  -------         DO            
+  D:0006H         SYMBOL        i
+  D:000CH         SYMBOL        j
+  -------         ENDDO         
+  C:10B2H         LINE#         187
+  C:10B2H         LINE#         188
+  C:10B2H         LINE#         190
+  C:10B4H         LINE#         191
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/03/2014  23:34:40  PAGE 7
+
+
+  C:10B4H         LINE#         192
+  C:10B6H         LINE#         193
+  C:10B9H         LINE#         194
+  C:10BCH         LINE#         195
+  C:10D2H         LINE#         196
+  C:10D6H         LINE#         197
+  -------         ENDPROC       CLRLCD
+  -------         PROC          MAIN
+  -------         DO            
+  D:0007H         SYMBOL        v
+  D:0008H         SYMBOL        i
+  D:000AH         SYMBOL        j
+  D:0004H         SYMBOL        value
+  D:0004H         SYMBOL        a
+  D:0006H         SYMBOL        b
+  D:0006H         SYMBOL        d
+  -------         ENDDO         
+  C:0DD9H         LINE#         20
+  C:0DD9H         LINE#         21
+  C:0DD9H         LINE#         27
+  C:0DDCH         LINE#         28
+  C:0DDFH         LINE#         29
+  C:0DE2H         LINE#         30
+  C:0DE4H         LINE#         33
+  C:0DE7H         LINE#         34
+  C:0DECH         LINE#         35
+  C:0DEFH         LINE#         37
+  C:0DEFH         LINE#         38
+  C:0DEFH         LINE#         39
+  C:0DF4H         LINE#         40
+  C:0DF7H         LINE#         41
+  C:0DFCH         LINE#         42
+  C:0DFCH         LINE#         43
+  C:0DFEH         LINE#         44
+  C:0E01H         LINE#         45
+  C:0E06H         LINE#         46
+  C:0E06H         LINE#         47
+  C:0E09H         LINE#         48
+  C:0E10H         LINE#         49
+  C:0E35H         LINE#         50
+  C:0E37H         LINE#         51
+  C:0E38H         LINE#         53
+  C:0E3FH         LINE#         54
+  C:0E3FH         LINE#         55
+  C:0E41H         LINE#         56
+  C:0E45H         LINE#         57
+  C:0E45H         LINE#         58
+  C:0E45H         LINE#         59
+  C:0E45H         LINE#         60
+  C:0E45H         LINE#         61
+  C:0E45H         LINE#         62
+  C:0E45H         LINE#         63
+  C:0E47H         LINE#         65
+  C:0E47H         LINE#         66
+  C:0E4CH         LINE#         67
+  C:0E4EH         LINE#         68
+  C:0E52H         LINE#         69
+BL51 BANKED LINKER/LOCATER V6.22                                                      03/03/2014  23:34:40  PAGE 8
+
+
+  C:0E54H         LINE#         70
+  C:0E56H         LINE#         71
+  C:0E58H         LINE#         72
+  C:0E59H         LINE#         73
+  C:0E5BH         LINE#         74
+  C:0E5DH         LINE#         75
+  C:0E5DH         LINE#         76
+  C:0E70H         LINE#         77
+  -------         ENDPROC       MAIN
+  -------         PROC          RX
+  -------         DO            
+  D:0007H         SYMBOL        val
+  -------         ENDDO         
+  C:114FH         LINE#         85
+  C:114FH         LINE#         86
+  C:114FH         LINE#         88
+  C:1152H         LINE#         89
+  C:1154H         LINE#         90
+  C:1156H         LINE#         91
+  C:1156H         LINE#         92
+  -------         ENDPROC       RX
+  -------         ENDMOD        WIRELESS_IMAGE_TRANSFER_XOR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:1006H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?IMUL
+  C:1033H         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?WIRELESS_IMAGE_TRANSFER_XOR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAYOFF?WIRELESS_IMAGE_TRANSFER_XOR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPUTS1?WIRELESS_IMAGE_TRANSFER_XOR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCDPUTS2?WIRELESS_IMAGE_TRANSFER_XOR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_PICTURE?WIRELESS_IMAGE_TRANSFER_XOR
+
+Program Size: data=37.0 xdata=0 code=4443
+LINK/LOCATE RUN COMPLETE.  5 WARNING(S),  0 ERROR(S)
